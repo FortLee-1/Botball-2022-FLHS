@@ -11,6 +11,7 @@ int main()
     wait_for_light(0);			//automatic start w/light for 119 secs
     shut_down_in(119)
     enable_servos();
+	
     //Red and orange
     grabRing(1232, 1796, 387, 1097); 
     driveToPole(114*82);
@@ -34,7 +35,7 @@ int main()
 
 void grabRing(int armUp, int armDown, int clawOpen, int clawClose)
 	{
-    set_servo_position(3, clawOpen);
+    set_servo_position(2, clawOpen);
     msleep(1000);
     int y;  //slowly going down
  		for(y = armUp; y <= armDown; y++)
@@ -47,7 +48,7 @@ void grabRing(int armUp, int armDown, int clawOpen, int clawClose)
     int b; 
 		for(b = clawOpen; b <= clawClose; b++)
 		{
-			set_servo_position(3, b);
+			set_servo_position(2, b);
  			msleep(5);
     }
     ao();
@@ -123,7 +124,7 @@ void dropRing(int armUp, int armDown, int clawOpen, int clawClose)
   int b; 
 	for(b = clawClose; b >= clawOpen; b--)
 	{
-		set_servo_position(3, b);
+		set_servo_position(2, b);
  		msleep(5);
   }
   ao();
